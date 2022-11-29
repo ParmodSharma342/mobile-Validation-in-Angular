@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <h2>Angular Mobile Number Validation Example</h2>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label>Mobile number: </label>
+      <input type="text" formControlName="mob" class="form-control mb-2" />
+      <div *ngIf="m.mob.touched && m.mob.invalid" class="alert alert-danger">
+        <div *ngIf="m.mob.errors?.required">Please enter mobile number</div>
+        <div *ngIf="m.mob.errors?.pattern">Mobile number is not 10 digit</div>
+      </div>
+    </div>
+    <div class="d-grid mt-3">
+      <button class="btn btn-dark" [disabled]="!myForm.valid" type="submit">
+        Store
+      </button>
+    </div>
+  </form>
+</div>
